@@ -1,9 +1,13 @@
 package net.asc.util.db;
 
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class DBConnect {
 	
@@ -43,5 +47,39 @@ public class DBConnect {
 	  }
 	  conn = null;
 	  }
+
+}
+
+public StubhubConnector() {
+
+	File configFile = new File("C:\\JavaApps\\stubhub.properties");
+
+	FileReader reader;
+
+	try {
+
+		reader = new FileReader(configFile);
+
+		Properties props = new Properties();
+
+		props.load(reader);
+
+		String userName = props.getProperty("username");
+
+		String password = props.getProperty("password");
+
+		String token = props.getProperty("token");
+
+		String guid = props.getProperty("guid");
+
+	} catch (IOException e) {
+
+		System.out.println("ERROR CANNOT LOAD STUBHUB ACCOUNT CONFIG");
+
+		System.exit(0);
+
+	}
+
+
 
 }
