@@ -50,7 +50,7 @@ public class DBConnect {
 
 }
 
-public StubhubConnector() {
+public class StubhubConnector() {
 
 	File configFile = new File("C:\\JavaApps\\stubhub.properties");
 
